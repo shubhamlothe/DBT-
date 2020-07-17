@@ -1,0 +1,197 @@
+1.
+create table SEMP(
+EMPNO CHAR(4),
+EMPNAME CHAR(20),
+BASIC FLOAT(9,2),
+DEPTNO CHAR(2),
+DEPTHEAD CHAR(4)
+);
+
+2.
+create table SDEPT(
+DEPTNO CHAR(2),
+DEPTNAME CHAR(15)
+);
+
+3.
+insert into SDEPT(DEPTNO,DEPTNAME)
+values
+(
+('10','Development'),
+('20','Training')
+);
+
+4.
+insert into SEMP(EMPNO,EMPNAME,BASIC,DEPTNO,DEPTHEAD)
+values
+(
+('0001', 'SUNIL', 6000, '10',NULL),
+('0002', 'HIREN', 8000, '20',NULL),
+('0003', 'ALI', 4000, '10', '0001'),
+('0004', 'GEORGE', 6000,NULL,'0002')
+);
+
+4.create S P J TABLES:-
+create table SUPPLIER(
+`S#` varchar(4),
+Sname char(20),
+Status char(4),
+City char(10)
+);
+
+6.
+create table PARTS(
+`P#` varchar(4),
+Pname char(20),
+Color char(10),
+Weight int(3),
+City char(10)
+);
+
+
+create table PROJECTS(
+`J#` varchar(4),
+Jname char(20),
+City char(10)
+);
+
+
+create table SUPPLIER_PARTS_PROJECT(
+`S#` varchar(4),
+`P#` varchar(4),
+`J#` varchar(4),
+Qty int(10)
+);
+
+
+
+insert into SUPPLIER values('S1','Priya','10','London');
+insert into SUPPLIER values('S2','Shubham','20','Athens');
+insert into SUPPLIER values('S3','Shyam','30','Paris');
+
+
+insert into PARTS values('P1','Axle','Silver',12,'London');
+insert into PARTS values('P2','brake','Black',13,'Athens');
+insert into PARTS values('P3','Mud Guard','Green',14,'Paris');
+
+insert into PROJECTS values ('J1','Param','London');
+insert into PROJECTS values ('J2','Pratyush','Athens');
+insert into PROJECTS values ('J3','Parmanu','Paris');
+
+insert into SUPPLIER_PARTS_PROJECT values ('S1','P1','J1',100);
+insert into SUPPLIER_PARTS_PROJECT values ('S2','P2','J2',200);
+insert into SUPPLIER_PARTS_PROJECT values ('S3','P3','J3',250);
+
+
+5.
+select * from supplier;
+
++------+---------+--------+--------+
+| S#   | Sname   | Status | City   |
++------+---------+--------+--------+
+| S1   | Priya   | 10     | London |
+| S2   | Shubham | 20     | Athens |
+| S3   | Shyam   | 30     | Paris  |
++------+---------+--------+--------+
+
+6.
+select `S#`, Sname from supplier;
+
++------+---------+
+| S#   | Sname   |
++------+---------+
+| S1   | Priya   |
+| S2   | Shubham |
+| S3   | Shyam   |
++------+---------+
+
+7. Display the PNAME and COLOR from the P table for the CITY=”London”.
+select Pname,Color from parts WHERE City='London';
+
++-------+--------+
+| Pname | Color  |
++-------+--------+
+| Axle  | Silver |
++-------+--------+
+
+8. Display all the Suppliers from London.
+select * from supplier WHERE City='London';
+
++------+-------+--------+--------+
+| S#   | Sname | Status | City   |
++------+-------+--------+--------+
+| S1   | Priya | 10     | London |
++------+-------+--------+--------+
+
+9. Display all the Suppliers from Paris or Athens.
+select * from supplier WHERE City='London' or City=
+'Athens';
+
++------+---------+--------+--------+
+| S#   | Sname   | Status | City   |
++------+---------+--------+--------+
+| S1   | Priya   | 10     | London |
+| S2   | Shubham | 20     | Athens |
++------+---------+--------+--------+
+
+10. Display all the Projects in Athens.
+select * from projects where City='Athens';
+
++------+----------+--------+
+| J#   | Jname    | City   |
++------+----------+--------+
+| J2   | Pratyush | Athens |
++------+----------+--------+
+
+11. Display all the Partnames with the weight between 12 and 14 (inclusive of both).
+select Pname,Weight from parts where weight>=12 and weight<=14;
+
++-----------+--------+
+| Pname     | weight |
++-----------+--------+
+| Axle      |     12 |
+| brake     |     13 |
+| Mud Guard |     14 |
++-----------+--------+
+
+12. Display all the Suppliers with a Status greater than or equal to 20.
+select * from supplier where Status>=20;
+
++------+---------+--------+--------+
+| S#   | Sname   | Status | City   |
++------+---------+--------+--------+
+| S2   | Shubham | 20     | Athens |
+| S3   | Shyam   | 30     | Paris  |
++------+---------+--------+--------+
+
+13. Display all the Suppliers except the Suppliers from London.
+select * from supplier where City!='London';
+
++------+---------+--------+--------+
+| S#   | Sname   | Status | City   |
++------+---------+--------+--------+
+| S2   | Shubham | 20     | Athens |
+| S3   | Shyam   | 30     | Paris  |
++------+---------+--------+--------+
+
+14. Display only the Cities from where the Suppliers come from.
+select City from supplier;
+
++--------+
+| City   |
++--------+
+| London |
+| Athens |
+| Paris  |
++--------+
+
+15. Assuming that the Part Weight is in GRAMS, display the same in MILLIGRAMS and KILOGRAMS.
+select Weight*1000 as "milligrams", weight from parts ;
+
++------------+--------+
+| milligrams | weight |
++------------+--------+
+|      12000 |     12 |
+|      13000 |     13 |
+|      14000 |     14 |
++------------+--------+
