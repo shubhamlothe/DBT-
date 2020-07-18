@@ -1,0 +1,56 @@
+Excercise 2
+1. Display the Supplier table in the descending order of CITY.
+select * from supplier order by City desc;
+
++------+---------+--------+--------+
+| S#   | Sname   | Status | City   |
++------+---------+--------+--------+
+| S3   | Shyam   | 30     | Paris  |
+| S1   | Priya   | 10     | London |
+| S2   | Shubham | 20     | Athens |
++------+---------+--------+--------+
+
+2. Display the Part Table in the ascending order of CITY and within the city in the ascending order of Part names.
+select * from parts   order by City asc,Pname asc;
+
++------+-----------------+--------+--------+--------+
+| P#   | Pname           | Color  | Weight | City   |
++------+-----------------+--------+--------+--------+
+| P2   | brake           | Black  |     13 | Athens |
+| P4   | Level Indicator | Black  |     11 | Athens |
+| P1   | Axle            | Silver |     12 | London |
+| P3   | Mud Guard       | Green  |     14 | Paris  |
++------+-----------------+--------+--------+--------+
+
+3. Display all the Suppliers with a status between 10 and 20.
+select * from supplier where Status between 10 and 20;
+
++------+---------+--------+--------+
+| S#   | Sname   | Status | City   |
++------+---------+--------+--------+
+| S1   | Priya   | 10     | London |
+| S2   | Shubham | 20     | Athens |
++------+---------+--------+--------+
+
+4. Display all the Parts and their Weight, which are not in the range of 10 and 15.
+select Pname,Weight from parts where Weight not between 10 and 15;
+ 
+5. Display all the Part names starting with the letter ‘S’.
+select * from parts where Pname like 'L%';
+
++------+-----------------+-------+--------+--------+
+| P#   | Pname           | Color | Weight | City   |
++------+-----------------+-------+--------+--------+
+| P3   | Level Indicator | Black |     11 | Athens |
++------+-----------------+-------+--------+--------+
+
+6. Display all the Suppliers, belonging to cities starting with the letter ‘L’.
+select * from supplier where City like 'L%';
+
++------+-------+--------+--------+
+| S#   | Sname | Status | City   |
++------+-------+--------+--------+
+| S1   | Priya | 10     | London |
++------+-------+--------+--------+
+7. Display all the Projects, with the third letter in JNAME as ‘n’.
+select * from projects where Jname like '___n';
