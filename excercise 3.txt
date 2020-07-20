@@ -1,0 +1,80 @@
+Sameer Dehadrai
+SQL Exercise 3
+1. Display all the Supplier names with the initial letter capital.
+Select concat(Upper(Substring(fname,1,1)),lower(Substring(fname,2,length(fname)))) from Emp;
+
++-----------------------------------------------------------------------------+
+| concat(Upper(Substring(fname,1,1)),lower(Substring(fname,2,length(fname)))) |
++-----------------------------------------------------------------------------+
+| Harry                                                                       |
+| Sherlok                                                                     |
+| Larry                                                                       |
+| Charls                                                                      |
++-----------------------------------------------------------------------------+
+
+
+2. Display all the Supplier names in upper case.
+ select upper(Sname) from supplier;
+
++--------------+
+| upper(Sname) |
++--------------+
+| PRIYA        |
+| SHUBHAM      |
+| SHYAM        |
++--------------+
+
+3. Display all the Supplier names in lower case.
+select lower(Sname) from supplier;
+
++--------------+
+| lower(Sname) |
++--------------+
+| priya        |
+| shubham      |
+| shyam        |
++--------------+
+
+4. Display all the Supplier names padded to 25 characters, with spaces on the left.
+select lpad(Sname,25,' ')from supplier;
+
++---------------------------+
+| lpad(Sname,25,' ')        |
++---------------------------+
+|                     Priya |
+|                   Shubham |
+|                     Shyam |
++---------------------------+
+
+5. Display all the Supplier names (with ‘la’ replaced by ‘ro’).
+HINT: REPLACE.
+select replace (ename,'la','ro') from emp;
+
+6. Implement the above command such that ‘l’ is replaced with ‘r’ and ‘a’ is replaced with ‘o’.
+select replace (fname,'l','r'),replace(fname,'a','o') from emp;
+
++-------------------------+------------------------+
+| replace (fname,'l','r') | replace(fname,'a','o') |
++-------------------------+------------------------+
+| harry                   | horry                  |
+| sherrok                 | sherlok                |
+| rarry                   | lorry                  |
+| charrs                  | chorls                 |
++-------------------------+------------------------+
+
+7. Display the Supplier names and the lengths of the names.
+ select fname,lname, length(fname)+ length(lname) 'length of names' from emp;
++---------+---------+-----------------+
+| fname   | lname   | length of names |
++---------+---------+-----------------+
+| harry   | potter  |              11 |
+| sherlok | holmes  |              13 |
+| larry   | page    |               9 |
+| charls  | babbage |              13 |
++---------+---------+-----------------+
+
+8. Use the soundex function to search for a supplier by the name of ‘BLOKE’.
+select * from supplier where soundex(Sname) = soundex('BLOKE');
+
+9. Display the Supplier name and the status (as Ten, Twenty, Thirty, etc.).
+10. Display the current day (e.g. Thursday).
