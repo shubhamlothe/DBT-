@@ -1,0 +1,39 @@
+1)select city.name from city,country
+SELECT CITY.NAME
+FROM CITY,COUNTRY
+WHERE COUNTRYCODE = CODE AND CONTINENT = 'AFRICA';
+
+select c.name from city c , country cc where c.countrycode=cc.code and continent ='africa';
+
+
+2
+
+SELECT country.continent, floor(avg(city.Population)) FROM city,country WHERE city.countrycode = country.code GROUP BY country.continent;
+
+3)
+SELECT Name FROM STUDENTS WHERE Marks > 75 ORDER BY RIGHT(Name, 3), ID;
+
+select name from students where marks>75 order by right(name,3),id asc;
+
+select name from students where marks >75 order by substr(name,-3);
+
+
+12
+
+select concat(name,'(', left(occupation,1),')') from occupations ORDER BY name;
+
+
+select concat('There are a total of ',count(occupation),' ',lower(occupation),'s.')from occupations GROUP BY occupation ORDER BY count(occupation),occupation;
+
+
+11)
+SELECT c.company_code, c.founder, 
+       COUNT(DISTINCT l.lead_manager_code), COUNT(DISTINCT s.senior_manager_code),
+       COUNT(DISTINCT m.manager_code), COUNT(DISTINCT e.employee_code)
+FROM Company c, Lead_Manager l, Senior_Manager s, Manager m, Employee e
+WHERE c.company_code = l.company_code AND 
+      l.lead_manager_code = s.lead_manager_code AND
+      s.senior_manager_code = m.senior_manager_code AND
+      m.manager_code = e.manager_code
+GROUP BY c.company_code, c.founder ORDER BY c.company_code;
+
