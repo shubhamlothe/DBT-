@@ -1,0 +1,38 @@
+Assignment – 19
+Views.
+1) Create a view that shows all of the customers who have the highest ratings.
+ create view v2 as select * from customers where rating=(select max(rating) from customers);
++------+----------+------+--------+------+
+| Cnum | Cname    | City | Rating | Snum |
++------+----------+------+--------+------+
+| 2002 | Giovanni | Rome |    400 | 1003 |
++------+----------+------+--------+------+
+
+2) Create a view that shows the number of salespeople in each city.
+create view v3 as select city,count(*) 'count of speople' from salespeople group by city;
++-----------+------------------+
+| city      | count of speople |
++-----------+------------------+
+| Barcelona |                1 |
+| London    |                2 |
+| New York  |                1 |
+| San Jose  |                2 |
++-----------+------------------+
+3) Create a view that shows the average and total orders for each salesperson after his or her name. Assume all names are unique.
+create view v4 as select sname,avg(amt)'Average',sum(amt)'Total' from orders,salespeople where salespeople.Snum=orders.snum;
++--------+-------------+----------+
+| sname  | Average     | Total    |
++--------+-------------+----------+
+| Rifkin | 1505.440017 | 12043.52 |
++--------+-------------+----------+
+
+4) Create a view that shows each salesperson with multiple customers.
+ create view v5 as select customers.snum,count(*)'count' from customers,orders where customers.snum=orders.snum group by snum;
++------+-------+
+| snum | count |
++------+-------+
+| 1001 |     1 |
+| 1002 |     9 |
+| 1003 |     1 |
+| 1007 |     2 |
++------+-------+
