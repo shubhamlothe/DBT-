@@ -1,0 +1,24 @@
+Assignment – 18
+Maintaining the Integrity of your Data.
+1) Create a table called Cityorders. This will contain the same onum, amt and snum fields as the Orders table, and the same cnum and city fields as the Customers table, so that each customer’s order will be entered into this table along with his or her city. Onum will be the primary key of Cityorders. All of the fields in Cityorders will be constrained to match the Customers and Orders tables. Assume the parent keys in these tables already have the proper constraints.
+ create table CityOrders as select onum,amt,orders.snum,customers.cnum,city from orders,customers where orders.cnum=customers.cnum;
+
++------+---------+------+------+----------+
+| onum | amt     | snum | cnum | city     |
++------+---------+------+------+----------+
+| 3001 |   18.69 | 1007 | 2008 | San Jose |
+| 3003 |  767.19 | 1001 | 2001 | London   |
+| 3002 | 1900.10 | 1004 | 2007 | Rome     |
+| 3005 | 5160.45 | 1002 | 2003 | San Jose |
+| 3006 | 1098.16 | 1007 | 2008 | San Jose |
+| 3009 | 1713.23 | 1003 | 2002 | Rome     |
+| 3007 |   75.75 | 1002 | 2004 | Berlin   |
+| 3010 | 1309.95 | 1002 | 2004 | Berlin   |
++------+---------+------+------+----------+
+
+
+2) Redefine the Orders table as follows:- add a new column called prev, which will identify, for each order, the onum of the previous order for that current customer. Implement this with a foreign key referring to the Orders table itself. The foreign key should refer as well to the cnum of the customer, providing a definite enforced link between the current order and the one referenced.
+alter table orders add prev int(4);
+alter table orders add constraint fk_prev foreign key(prev) references orders(onum);
+alter table orders add constraint fk_cprev foreign key(prev) references customers(cnum);
+
