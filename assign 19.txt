@@ -27,12 +27,9 @@ create view v4 as select sname,avg(amt)'Average',sum(amt)'Total' from orders,sal
 +--------+-------------+----------+
 
 4) Create a view that shows each salesperson with multiple customers.
- create view v5 as select customers.snum,count(*)'count' from customers,orders where customers.snum=orders.snum group by snum;
-+------+-------+
-| snum | count |
-+------+-------+
-| 1001 |     1 |
-| 1002 |     9 |
-| 1003 |     1 |
-| 1007 |     2 |
-+------+-------+
+ create view v7 as select distinct salespeople.snum,salespeople.sname from salespeople,customers where customers.snum=salespeople.snum and customers.snum=(select snum from customers group by snum having count(snum)>1);
++------+--------+
+| snum | sname  |
++------+--------+
+| 1002 | Serres |
++------+--------+
