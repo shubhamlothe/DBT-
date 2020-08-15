@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            height: 10vh;
+            background-color: royalblue;
+            align-items: center;
+            padding: 10px;
+        }
+    </style>
+    <script src="v2.js"></script>
+</head>
+
+<body>
+    <div class="nav">
+        <div>Home</div>
+        <div>About Us</div>
+        <div>Sign-in</div>
+    </div>
+    <br>
+    <div> <input type="text" id="dis" placeholder="comment here"> <button id="com" onclick="comment()">comment</button></div>
+    <button id="like" onclick="like()">like 0</button>
+    <button id="dislike" onclick="dislike()">dislike 0</button>
+    <div class="ucom"></div>
+</body>
+
+</html>

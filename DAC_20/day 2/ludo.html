@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Ludo</title>
+    <style>
+        body {
+            margin: 0px;
+        }
+        
+        .green-box {
+            border: 0.02vw solid green;
+            height: 40vh;
+            flex: 0.4;
+            background-color: green;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .red-box {
+            border: 0.02vw solid red;
+            height: 40vh;
+            flex: 0.4;
+            background-color: red;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .yellow-box {
+            border: 0.02vw solid yellow;
+            height: 40vh;
+            flex: 0.4;
+            background-color: yellow;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .blue-box {
+            border: 0.02vw solid blue;
+            flex: 0.4;
+            height: 40vh;
+            background-color: blue;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .upper-box {
+            display: flex;
+        }
+        
+        .gr-path-u {
+            height: 40vh;
+            flex: 0.2;
+        }
+        
+        .mid-path {
+            display: flex;
+        }
+        
+        .home {
+            height: 20vh;
+            flex: 0.2;
+        }
+        
+        .gy-path {
+            height: 20vh;
+            flex: 0.4;
+        }
+        
+        .by-path {
+            height: 20vh;
+            flex: 0.2;
+        }
+        
+        .lower-box {
+            display: flex;
+        }
+        
+        .yb-path {
+            height: 20vh;
+            flex: 0.2;
+        }
+        
+        .sqr {
+            height: 0vh;
+            width: 0vw;
+            background-color: black;
+            border-bottom: 10vh solid yellow;
+            border-top: 10vh solid red;
+            border-right: 10vw solid blue;
+            border-left: 10vw solid green;
+        }
+        
+        .path-block {
+            width: 6.53vw;
+            height: 6.66vh;
+            background-color: white;
+            border: 0.02vw solid black;
+        }
+        
+        .row {
+            display: flex;
+        }
+        
+        .row-1 {
+            display: flex;
+        }
+        
+        .inner-sq {
+            width: 20vw;
+            height: 20vh;
+            background-color: white;
+            display: flex;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="board">
+        <div class="upper-box">
+            <div class="green-box">
+                <div class="inner-sq">
+
+
+                </div>
+
+
+            </div>
+            <div class="gr-path-u">
+                <div class="row-1">
+                    <div class="path-block"></div>
+                    <div class="path-block" style="text-align: center;"><i class="fa fa-arrow-down fa-3x" aria-hidden="true"></i></div>
+                    <div class="path-block"></div>
+
+                </div>
+                <div class="row-1">
+
+                    <div class="path-block"></div>
+                    <div class="path-block" style="background-color: red;"></div>
+                    <div class="path-block" style="background-color: red;"></div>
+                </div>
+                <div class="row-1">
+
+                    <div class="path-block" style="text-align: center; ><i class=" fa fa-star " aria-hidden="true " ></i></div>
+                    <div class="path-block " style="background-color: red; "></div>
+                    <div class="path-block "></div>
+                </div>
+                <div class="row-1 ">
+
+                    <div class="path-block "></div>
+                    <div class="path-block " style="background-color: red; "></div>
+                    <div class="path-block "></div>
+                </div>
+                <div class="row-1 ">
+
+                    <div class="path-block "></div>
+                    <div class="path-block " style="background-color: red; "></div>
+                    <div class="path-block "></div>
+                </div>
+                <div class="row-1 ">
+
+                    <div class="path-block "></div>
+                    <div class="path-block " style="background-color: red; "></div>
+                    <div class="path-block "></div>
+                </div>
+
+            </div>
+            <div class="red-box ">
+                <div class="inner-sq ">
+                    
+
+                </div>
+
+            </div>
+        </div>
+
+        <div class="mid-path ">
+            <div class="gy-path ">
+                <div class="row ">
+                    <div class="path-block "></div>
+                    <div class="path-block " style="background-color: green; "></div>
+                    <div class="path-block "></div>
+                    <div class="path-block "></div>
+                    <div class="path-block "></div>
+                    <div class="path-block "></div>
+                </div>
+                <div class="row ">
+                    <div class="path-block " style="text-align: center; "><i class="fa fa-arrow-right fa-3x " aria-hidden="true "></i></div>
+                    <div class="path-block " style="background-color: green; "></div>
+                    <div class="path-block " style="background-color: green; "></div>
+                    <div class="path-block " style="background-color: green; "></div>
+                    <div class="path-block " style="background-color: green; "></div>
+                    <div class="path-block " style="background-color: green; "></div>
+                </div>
+                <div class="row ">
+                    <div class="path-block "></div>
+                    <div class="path-block "></div>
+                    <div class="path-block " style="text-align: center; "><i class="fa fa-star fa-3x " aria-hidden="true "></i></div>
+                    <div class="path-block "></div>
+                    <div class="path-block "></div>
+                    <div class="path-block "></div>
+                </div>
+
+
+            </div>
+            <div class="home ">
+                <div class="sqr "></div>
+            </div>
+            <div class="by-path ">
+                <div class="row ">
+                    <div class="path-block "></div>
+                    <div class="path-block "></div>
+                    <div class="path-block "></div>
+                    <div class="path-block " style="text-align: center; "><i class="fa fa-star fa-3x " aria-hidden="true "></i></div>
+                    <div class="path-block "></div>
+                    <div class="path-block "></div>
+                </div>
+
+                <div class="row ">
+                    <div class="path-block " style="background-color: blue; "></div>
+                    <div class="path-block " style="background-color: blue; "></div>
+                    <div class="path-block " style="background-color: blue; "></div>
+                    <div class="path-block " style="background-color: blue; "></div>
+                    <div class="path-block " style="background-color: blue; "></div>
+                    <div class="path-block " style="text-align: center; "><i class="fa fa-arrow-left fa-3x " aria-hidden="true "></i></div>
+                </div>
+
+                <div class="row ">
+                    <div class="path-block "></div>
+                    <div class="path-block "></div>
+                    <div class="path-block "></div>
+                    <div class="path-block "></div>
+                    <div class="path-block " style="background-color: blue; "></div>
+                    <div class="path-block "></div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="lower-box ">
+            <div class="yellow-box ">
+                <div class="inner-sq ">
+                  
+                </div>
+
+            </div>
+            <div class="yb-path ">
+                <div class="row-1 ">
+
+                    <div class="path-block "></div>
+                    <div class="path-block " style="background-color: yellow; "></div>
+                    <div class="path-block "></div>
+                </div>
+                <div class="row-1 ">
+
+                    <div class="path-block "></div>
+                    <div class="path-block " style="background-color: yellow; "></div>
+                    <div class="path-block "></div>
+                </div>
+                <div class="row-1 ">
+
+                    <div class="path-block "></div>
+                    <div class="path-block " style="background-color: yellow; "></div>
+                    <div class="path-block "></div>
+                </div>
+                <div class="row-1 ">
+
+                    <div class="path-block "></div>
+                    <div class="path-block " style="background-color: yellow; "></div>
+                    <div class="path-block " style="text-align: center; "><i class="fa fa-star fa-3x " aria-hidden="true "></i></div>
+                </div>
+                <div class="row-1 ">
+
+                    <div class="path-block " style="background-color: yellow; "></div>
+                    <div class="path-block " style="background-color: yellow; "></div>
+                    <div class="path-block "></div>
+                </div>
+                <div class="row-1 ">
+
+                    <div class="path-block "></div>
+                    <div class="path-block " style="text-align: center; "><i class="fa fa-arrow-up fa-3x " aria-hidden="true "></i></div>
+                    <div class="path-block "></div>
+                </div>
+
+            </div>
+            <div class="blue-box ">
+                <div class="inner-sq ">
+                    <div class="sq "></div>
+                    <div class="sq "></div>
+                    <div class="sq "></div>
+                    <div class="sq "></div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
