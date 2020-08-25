@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: cursive;
+
+        }
+
+        .post {
+            height: 40vh;
+            width: 40vw;
+            background-color: coral;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .sample {
+            height: 10vh;
+            width: 10vw;
+            background-color: gainsboro;
+            font-family: cursive;
+            font-size: 1rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        .like {
+            height: 20vh;
+            width: 20vw;
+            background-color: springgreen;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: start;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Demo Of Bubbling Effect</h1>
+    <div class="post" onclick="post()">
+        <div class=" like" onclick="like()">
+            <div class="sample" onclick="name()">
+                Shubham</div>
+        </div>
+
+    </div>
+
+    <h1>Solution Of Bubbling Effect</h1>
+
+    <div class="post" onclick="post()">
+        <div class="like" onclick="event.stopPropagation(),like()">
+            <div class="sample" onclick="event.stopPropagation(),name()">
+                Shubham</div>
+        </div>
+
+    </div>
+
+
+
+
+    <script>
+
+
+        function like() {
+            confirm("Inner div is called !");
+        }
+        function post() {
+            confirm("Outer div is called !!");
+        }
+
+        function name() {
+            confirm(" Shubham is called !!");
+        }
+
+    </script>
+</body>
+
+</html>

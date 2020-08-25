@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            background-color: burlywood;
+            font-family: cursive;
+        }
+
+        input[type="text"] {
+            height: 50px;
+            width: 600px;
+            background-color: #e7e7e7;
+            font-family: cursive;
+            font-weight: bold;
+            font-size: 20px;
+            border: none;
+            border-radius: 10px;
+            padding: 10px;
+
+
+        }
+
+        .input {
+            margin-bottom: 50px;
+
+        }
+
+        input[type="submit"] {
+            height: 70px;
+            width: 100px;
+            background-color: #e7e7e7;
+            font-family: cursive;
+            font-weight: bold;
+            font-size: 20px;
+            border: none;
+            border-radius: 10px;
+            padding: 10px;
+        }
+
+        .abc {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+    </style>
+</head>
+
+<body>
+    <script src="https://code.responsivevoice.org/responsivevoice.js"></script>
+
+    <div class="abc">
+        <h1>Text To Speech Converter </h1>
+        <div class="input">
+            <input type="text" id="txt" placeholder="Enter Text Here">
+            <input type="submit" value="Submit" onclick="textSpeak()">
+        </div>
+
+    </div>
+
+
+
+
+    <script>function textSpeak() {
+            var text = document.getElementById("txt").value;
+            responsiveVoice.speak(text);
+            document.getElementById("txt").value = "";
+        }
+
+    </script>
+</body>
+
+</html>
