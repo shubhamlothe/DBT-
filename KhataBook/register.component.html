@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <title>Sign Up</title>
+</head>
+
+<body>
+
+    <div class="container  ">
+
+        <h2 style="text-align: center;font-weight: bold;font-size:45px;margin-bottom: 50px;color: brown;">Create
+            Your Account
+        </h2>
+
+        <div class="row d-flex justify-content-center align-items-center">
+            <div class=" jumbotron  " [formGroup]="fbFormGroup">
+
+
+
+                <div class="col-md-12 mb-4">
+                    <label for="mb">Mobile Number</label>
+                    <input type="text" class="form-control" formControlName="mobilenumber" id="contact"
+                        placeholder="Mobile Number">
+                </div>
+
+
+
+                <div class="col-md-12 mb-4">
+                    <label for="mb">Business/Shop Name</label>
+                    <input type="text" class="form-control" id="bizName" formControlName="shopname"
+                        placeholder="Business/Shop Name">
+                </div>
+
+                <div class="col-md-12 mb-4">
+                    <label for="mb">Password</label>
+                    <input type="password" class="form-control" id="password" formControlName="password"
+                        placeholder="Password">
+                </div>
+
+                <div class="col-md-12 mb-4">
+                    <label for="mb">Confirm Password</label>
+                    <input type="password" class="form-control" formControlName="cpassword"
+                        placeholder="Confirm Password">
+                </div>
+
+                <div class="col-md-12" style="text-align: center;margin-top: 12px;">
+                    <button type="submit" class=" btn btn-primary" [disabled]="!fbFormGroup.valid"
+                        (click)="registerUsingPost()">Sign Up</button>
+
+                </div>
+
+                <div class="col-md-12 text-info" style="text-align: center;">
+                    Already A Member?
+                    <a routerLink="/login">Login Here</a>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+</body>
+
+</html>
