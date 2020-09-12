@@ -1,0 +1,254 @@
+Assignmanet 1
+
+ Q1. Explore the following commands with various options, refer man pages for 
+    further help a) date b) cal c) bc d) echo e) who f) whoami g) logname g) uname h)
+    seq i) clear
+
+	DATE  
+
+  %a   locale's abbreviated weekday name (e.g., Sun)
+  %A   locale's full weekday name (e.g., Sunday)
+  %b   locale's abbreviated month name (e.g., Jan)
+  %B   locale's full month name (e.g., January)
+  %c   locale's date and time (e.g., Thu Mar  3 23:05:25 2005)
+  %C   century; like %Y, except omit last two digits (e.g., 20)
+  %d   day of month (e.g., 01)
+  %D   date; same as %m/%d/%y
+  %e   day of month, space padded; same as %_d
+  %F   full date; same as %Y-%m-%d
+  %g   last two digits of year of ISO week number (see %G)
+  %G   year of ISO week number (see %V); normally useful only with %V
+  %h   same as %b
+  %H   hour (00..23)
+  %I   hour (01..12)
+  %j   day of year (001..366)
+  %k   hour, space padded ( 0..23); same as %_H
+  %l   hour, space padded ( 1..12); same as %_I
+  %m   month (01..12)
+  %M   minute (00..59)
+  %n   a newline
+  %N   nanoseconds (000000000..999999999)
+  %p   locale's equivalent of either AM or PM; blank if not known
+  %P   like %p, but lower case
+  %q   quarter of year (1..4)
+  %r   locale's 12-hour clock time (e.g., 11:11:04 PM)
+  %R   24-hour hour and minute; same as %H:%M
+  %s   seconds since 1970-01-01 00:00:00 UTC
+  %S   second (00..60)
+  %t   a tab
+  %T   time; same as %H:%M:%S
+  %u   day of week (1..7); 1 is Monday
+  %U   week number of year, with Sunday as first day of week (00..53)
+  %V   ISO week number, with Monday as first day of week (01..53)
+  %w   day of week (0..6); 0 is Sunday
+  %W   week number of year, with Monday as first day of week (00..53)
+  %x   locale's date representation (e.g., 12/31/99)
+  %X   locale's time representation (e.g., 23:13:48)
+  %y   last two digits of year (00..99)
+  %Y   year
+  %z   +hhmm numeric time zone (e.g., -0400)
+  %:z  +hh:mm numeric time zone (e.g., -04:00)
+  %::z  +hh:mm:ss numeric time zone (e.g., -04:00:00)
+  %:::z  numeric time zone with : to necessary precision (e.g., -04, +05:30)
+  %Z   alphabetic time zone abbreviation (e.g., EDT)
+
+Q2
+A) Create three directory a b and c and create a.txt,b.txt and c.txt in each directory respectively and then copy c directory into the a.
+
+Ans: cp -r c a
+
+B)Move Directory b to c
+Ans: mv b c
+
+C)Create alias of ls -lh command to your name.
+Ans:  alias Rambo="ls -lh"
+
+D) Change Directory name a to cdac.
+Ans:mv a cdac
+
+
+Q3. A) Create five files file1.txt , file2.txt ,file3.txt file4.txt and
+    file5.txt with some text inside it. Search for 's' character
+    inside all the files using grep command.
+Ans: grep 's\|' file3.txt
+
+ Also Use cat to view all file content together.
+Ans: cat  {file1.txt,file2.txt,file3.txt,file4.txt,file5.txt}
+hello how are you
+im fine
+njoy
+life is great
+we live once...
+
+B)Create file.txt using cat and edit that using nano editor
+Ans:cat > demo.txt
+    nano demo.txt
+
+C)Create 5 empty files using touch command
+touch {file1.txt,file2.txt,file3.txt,file4.txt,file5.txt}
+
+D)Remove previously created directory a , b and c.
+rm -rf a b c
+
+Q4. Create a file with some content using vi editor
+Ans vi demo
+
+a) Display the file using cat command
+   Ans: cat demo
+
+b) Display line numbers along with content
+Ans  cat -n demo
+
+c) Display the file in reverse order using tac
+Ans:  tac demo
+
+d) Combine multiple files using cat command
+Ans: cat demo demo1
+
+Q5. Create Random some files and sub directories.
+Ans mkdir -p images/pictures 
+    cat > demo.txt
+    cat > demo2.txt
+) display files row wise, column wise, 1 per row
+
+b) sort the files in ascending, descending order
+Ans sort -n demo1.txt
+
+_________________________________________________________________________________________________________
+Q1)
+
+Create directory of your name and then create 4 files inside it named
+	a.txt, b.txt, c.txt and d.sh. And change the directory permission to
+	only user and also files permission to only user such that
+a)user can read and write the file a.txt and b.txt
+
+mkdir allsh
+cd allsh
+cat > a.txt
+cat > b.txt
+cat > c.txt
+
+a)user can read and write the file a.txt and b.txt
+chmod 060 a.txt b.txt
+
+b)user can write the file c.txt
+chmod 020 c.txt
+
+Q2. Change the permission of the previous directory to executable only.
+
+Ans: priyanka@DESKTOP-E3TUKR3:/mnt/d/os$ chmod 010 a.txt
+
+Q3. Change the permission of the previous directory to read only.
+ chmod a=r allsh
+
+
+Q2. Change the permission of the previous directory to executable only.
+	Analyze the output.
+ chmod 010 rambo
+
+Q3) Change the permission of the previous directory to read only.
+	Analyze the output.
+chmod 040 rambo
+-bash: cd: mahabharat: Permission denied
+
+Q4. Use echo to list the all files of your home directory.
+ANs: echo *
+
+OS  Assignment_1.txt OS  Assignment_2.txt a.txt b.txt c.txt codes file1.txr file1.txt file2.txt ram allprograms
+
+Q5. Use echo to list the all files of /etc/ directory
+
+Q6. Use echo to list the all files of /etc/ directory with extension name .conf
+ echo *.conf
+demo.conf
+
+Q7. Use echo to append your name to a.txt
+echo a.txt > sunshine
+
+Note:Many operation might not work.Analyze them
+1.Create Three level nested directory a,b and c
+mkdir -p a/b/c
+
+a)Create at least one hidden file in each directory
+touch .hiddenfile.txt
+
+b)Create at least one normal text file in each directory
+touch > a/file1.txt b/file2
+
+c)Copy c into a
+ans :  cp -r c a
+
+d)Copy file inside a into b
+Ans:  cp -r a b
+
+2) Change the third level directory c permission to read only
+chmod 400 c
+
+3) Try copying third level c directory to outside of a
+cp -r  c  /mnt/g/osassign
+
+4.Create the directory  “data“ inside b
+ mkdir -p b/data
+
+5.Change the permission of b to read and write only
+ chmod 600 file1.txt
+
+6)Create directory “data2”  inside b
+ mkdir -p b/data2
+
+7.Create data.txt file inside b
+ cat >  data.txt  b
+
+8.Rename the second level directory c to copied_dir
+ mv c cpoied_dir
+
+
+9.Change permission of copied_dir to only executable
+ chmod 001 copied_dir
+
+
+10 Try ls on copied_dir
+ls
+
+
+11.Try moving copied_dir to outside of a
+ cp -r cpoied_dir  /mnt/g/osassign
+
+13.Now change the owner of the directory a to root
+
+14.Change permission of a to read write and executable to only user
+ chmod 700 a
+
+15.Try creating directory sample inside a
+mkdir -p a/sample
+
+16.Create directory x outside a
+ mkdir -p a/x
+
+17.	Try moving x inside a
+ mv x /mnt/g/osassign/a
+
+18.Create directory movies
+mkdir movies
+19.Change group of movies to sudo
+sudo usermod -aG sudo newuser
+
+20.Change group of movies to avahi
+chgrp scifi myfile
+
+21.Try changing permission after changing ownership to root
+ sudo chmod --recursive a+rwx /tmp
+
+22.Try Changing permission after changing group to sudo without sudo
+pkexec chmod go-w /usr/lib/sudo/sudoers.so
+
+23.Try Changing owner and group both to root
+sudo chown -R username:group directory
+
+24.Try changinging permission
+sudo usermod -aG sudo newuser
+
+25.Try deleting the file
+rm -rf a.txt
+
+
