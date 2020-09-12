@@ -1,0 +1,305 @@
+
+				
+					           Assignment 3
+
+Read the following to understand the parent & child process concept.
+•	Process state Diagram
+
+	Start     This is the initial state when a process is first started/created.
+	Ready     The process is waiting to be assigned to a processor. 
+		  Ready processes are waiting to have the processor allocated to them by the operating system so that they can run. 
+		  Process may come into this state after Start state or while running it by but interrupted by the scheduler to assign
+		  CPU to some other process.
+	Running   Once the process has been assigned to a processor by the OS scheduler,
+		  the process state is set to running and the processor executes its instructions.
+	
+	Waiting   Process moves into the waiting state if it needs to wait for a resource, such as waiting for user input, 
+		  or waiting for a file to become available.
+	
+	Terminate/ Exit
+		  Once the process finishes its execution, or it is terminated by the operating system, 
+		 it is moved to the terminated state where it waits to be removed from main memory.
+----------------------------------------------------------------x-0-x---------------------------------------------------------------------------------------------------------------------------	
+•	The parent & child process concept
+
+	Parent Process
+			All the processes in operating system are created when a process executes the fork() system call except the startup process. The process that used the fork() system call is the parent process.
+		        In other words, a parent process is one that creates a child process. A parent process may have multiple child processes but a child process only one parent process.
+			On the success of a fork() system call, the PID of the child process is returned to the parent process and 0 is returned to the child process. 
+			On the failure of a fork() system call, -1 is returned to the parent process and a child process is not created.
+
+	Child Process
+			A child process is a process created by a parent process in operating system using a fork() system call. A child process may also be called a subprocess or a subtask.
+			A child process is created as its parent process’s copy and inherits most of its attributes. 
+			If a child process has no parent process, it was created directly by the kernel.
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	
+•	Understand orphan processes
+	
+	Orphan Process: A process whose parent process no more exists i.e. either finished or terminated without waiting for its child process to terminate is called an orphan process.
+		        In the following code, parent finishes execution and exits while the child process is still executing and is called an orphan process now.
+
+--------------------------------------------------------------x-0-x-------------------------------------------------------------------------------------------------------------------	
+•	Understand zombie processes
+	
+	Zombie Process:	A process which has finished the execution but still has entry in the process table to report to its parent process is known as a zombie process. 
+			A child process always first becomes a zombie before being removed from the process table. 
+			The parent process reads the exit status of the child process which reaps off the child process entry from the process table.
+--------------------------------------------------------------x-0-x-----------------------------------------------------------------------------------------------------------------		
+
+	what is getpid() and how to use it..??
+	getppid() returns the process ID of the parent of the current process.
+
+-------------------------------------------------------------x-0-x------------------------------------------------------------------------------------------------------------------		
+
+•	what is fork()? what happens when you use fork() in your program..??
+	
+	Fork system call is used for creating a new process, which is called child process, which runs concurrently with the process that makes the fork() call (parent process). 
+	After a new child process is created, both processes will execute the next instruction following the fork() system call. 
+	A child process uses the same pc(program counter), same CPU registers, same open files which use in the parent process.
+------------------------------------------------------------x-0-x-------------------------------------------------------------------------------------------------------------------		
+
+•	what is wait() / waitpid() and how to use it..??
+	
+	The wait() system call suspends execution of the current process until one of its children terminates. 
+	The call wait(&status) is equivalent to:    waitpid(-1, &status, 0);
+	The waitpid() system call suspends execution of the current process until a child specified by pid argument has changed state.
+	By default, waitpid() waits only for terminated children, but this behaviour is modifiable via the options argument
+
+-----------------------------------------------------------x-0-x--------------------------------------------------------------------------------------------------------------------		
+
+•	what are zombie processes? when they will get created.? How to kill the zombie processes..?
+
+	A zombie process is a process whose execution is completed but it still has an entry in the process table. 
+	Zombie processes usually occur for child processes, as the parent process still needs to read its child’s exit status.
+	Once this is done using the wait system call, the zombie process is eliminated from the process table. This is known as reaping the zombie process.
+	So what you do is you type this command – kill -s SIGCHLD pid ​Replace the pid with the id of the parent process so that the parent process will remove all the child processes
+	that are dead and completed.
+----------------------------------------------------------x-0-x---------------------------------------------------------------------------------------------------------------------		
+
+•	what are orphan processes? when they will get created.?
+	
+	An orphan process is a running process whose parent process has finished or terminated
+----------------------------------------------------------x-0-x---------------------------------------------------------------------------------------------------------------------		
+
+•	what is user space?
+
+	User space is system memory allocated to running applications. 
+	It is often contrasted with kernel space, which is memory allocated to the kernel and the operating system.
+	Separating user space from kernel space protects the system from errant processes that could use up memory required by the 
+	operating system (OS). 
+----------------------------------------------------------x-0-x---------------------------------------------------------------------------------------------------------------------		
+
+•	what is kernel space / system space? 
+	
+	kernel space and user space. Kernel space is where the kernel (i.e.,
+	 the core of the operating system) executes (i.e., runs) and provides its services.
+
+----------------------------------------------------------x-0-x---------------------------------------------------------------------------------------------------------------------		
+•	What is IPC(inter process communication) and what is the need of it.
+	
+	
+	What is Inter Process Communication?
+	Inter process communication (IPC) is used for exchanging data between multiple threads in one or more processes or programs. 
+	The Processes may be running on single or multiple computers connected by a network. The full form of IPC is Inter-process communication.
+
+---------------------------------------------------------x-0-x----------------------------------------------------------------------------------------------------------------------		
+•	what is Unnamed PIPE? how to create it? When we need this??
+
+	unnamed pipe
+			handles one way communication. Also called an anonymous pipe (or simply pipe), 
+			it is typically used to communicate between a parent process and a child process.
+			Within SAS, the SAS System is the parent process that invokes (and reads data from) a child process.
+---------------------------------------------------------x-0-x----------------------------------------------------------------------------------------------------------------------		
+
+
+•	what is named PIPE? how to create it? When we need this??
+
+	In computing, a named pipe (also known as a FIFO for its behavior) is an extension to the traditional pipe concept on Unix and Unix-like systems,
+	and is one of the methods of inter-process communication (IPC). The concept is also found in OS/2 and Microsoft Windows, although the semantics differ substantially. A traditional pipe is "unnamed" and lasts only as long as the process. A named pipe, however, can last as long as the system is up, beyond the life of the process. It can be deleted if no longer used.
+	Usually a named pipe appears as a file, and generally processes attach to it for IPC.
+
+-------------------------------------------------------x-0-x------------------------------------------------------------------------------------------------------------------------		
+
+•	What is the difference between Unnamed PIPE and named PIPE?
+	
+	Unnamed pipes : An unnamed pipe is only used for communication between a child and it’s parent process, 
+			while a named pipe can be used for communication between two unnamed process as well. 
+			Processes of different ancestry can share data through a named pipe.
+	Named pipe: 	 A named pipe exists in the file system. After input-output has been performed by the 
+			sharing processes, the pipe still exists in the file system independently of the process,
+			and can be used for communcation between some other processes.
+
+-------------------------------------------------------x-0-x------------------------------------------------------------------------------------------------------------------------		
+
+•	what are execl,exec,execv and difference between them..?? 
+
+	exec:   The exec type system calls allow a process to run any program files, which include a binary executable or a shell script . Syntax:
+	        int execvp (const char *file, char *const argv[]);
+
+	execvp : Using this command, the created child process does not have to run the same program as the parent process does
+
+	EXECL :	The execl() function replaces the current process image with a new process image specified by path. 
+		The new image is constructed from a regular, executable file called the new process image file.
+		 No return is made because the calling process image is replaced by the new process image.
+-------------------------------------------------------x-0-x------------------------------------------------------------------------------------------------------------------------		
+
+•	what is semaphore? Explore sem_init(), sem_create(), sem_destroy(), sem_unlink(), sem_wait(), sem_post().
+	
+	Semaphores : Semaphores are another common form of synchronization that allows 
+		     threads to "post" and "wait" on a semaphore to control when threads wake or sleep.
+
+
+------------------------------------------------------x-0-x-------------------------------------------------------------------------------------------------------------------------		
+•what is mutex? Difference between semaphore and mutex.
+
+Parameters	Semaphore				Mutex
+Mechanism	It is a type of signaling mechanism.	It is a locking mechanism.
+Data Type	Semaphore is an integer variable.	Mutex is just an object. 
+Modification	The wait and signal operations can 	It is modified only by the process that may request or release a resource.
+		modify a semaphore.	
+
+
+Resource 
+management	If no resource is free, then the process If it is locked, the process has to wait. The process should be kept 
+		requires a resource that should execute  in a queue. This needs to be accessed only when the mutex is unlocked.
+		wait operation. It should wait until the 
+		count of the semaphore is greater than 0.					
+		
+Thread		You can have multiple program threads.	 You can have multiple program threads in mutex but not simultaneously.
+
+
+Ownership	Value can be changed by any process 	Object lock is released only by the process, which has obtained the lock on it.
+		releasing or obtaining the resource.
+
+Types		Types of Semaphore are counting 	Mutex has no subtypes.
+		semaphoreand binary semaphore.
+
+Operation	Semaphore value is modified using	Mutex object is locked or unlocked.
+		 wait () and signal () operation.
+
+
+Resources 	It is occupied if all resources		In case if the object is already 
+Occupancy	are being used and the process 		locked, the process requesting 
+		requesting for resource performs 	resources waits and is queued 
+		wait () operation and blocks itself	by the system before lock is released.
+		until semaphore count becomes >1.	
+
+----------------------------------------------------x-0-x-----------------------------------------------------------------------------
+
+1.	Parent and child process 
+Write a C/CPP program to create a child process. Child should print its pid and its parent’s pid and should exit by printing message as “Child Exiting …”. Parent should print its pid and should exit by printing message as “Parent Exiting ..”. 
+(Hint(functions to be used) : getpid, fork, getppid) 
+
+
+#include <stdio.h>
+#include <iostream>
+#include <string>
+// Required by for routine
+#include <sys/types.h>
+#include <unistd.h>
+#include <stdlib.h>
+ 
+main()
+{
+  int pid;
+ 
+  pid = fork();
+ 
+  if (pid < 0) { // error occurred 
+	  fprintf(stderr, "Fork failed!\n");
+	  exit(-1);
+  }else if (pid == 0) { // child process 
+	  printf("I am the child, return from fork=%d\n", pid);
+	  execlp("/bin/ps", "ps", NULL);
+  }else { // parent process 
+	  printf("I am the parent, return from fork, child pid=%d\n", pid);
+	  printf("Parent exiting!\n");
+	  exit(0);
+  }
+}
+
+
+-------------------------------------------------------x-0-x------------------------------------------------------------------------------------------------------------------------		
+
+4.	Scheduling algorithm 
+	Write a program in C/CPP to take process name, its arrival time and execution/burst time as input. 
+	Use FCFS(non-preemptive) algorithm to calculate wait time of each process, average 
+	wait time, turnaround time of each process and average turnaround time. 
+	Calculation of time will start from the arrival time of first process.
+	execution/burst time - Time required for execution of process
+	Wait time of process = response time of process - arrival time process
+	Response time of process : time at which process is scheduled to run
+	Average wait time = (sum of wait time of each process) / (number of processes) 
+	Turnaround time of process = (finish/completion time of process) - (arrival time of process)
+	Average turnaround time = (sum of turnaround time of each process) / (number of processes) 
+
+#include<stdio.h>  
+// Function to find the waiting time for all   
+// processes  
+void findWaitingTime(int processes[], int n,   
+                          int bt[], int wt[])  
+{  
+    // waiting time for first process is 0  
+    wt[0] = 0;  
+    
+    // calculating waiting time  
+    for (int  i = 1; i < n ; i++ )  
+        wt[i] =  bt[i-1] + wt[i-1] ;  
+}  
+    
+// Function to calculate turn around time  
+void findTurnAroundTime( int processes[], int n,   
+                  int bt[], int wt[], int tat[])  
+{  
+    // calculating turnaround time by adding  
+    // bt[i] + wt[i]  
+    for (int  i = 0; i < n ; i++)  
+        tat[i] = bt[i] + wt[i];  
+}  
+    
+//Function to calculate average time  
+void findavgTime( int processes[], int n, int bt[])  
+{  
+    int wt[n], tat[n], total_wt = 0, total_tat = 0;  
+    
+    //Function to find waiting time of all processes  
+    findWaitingTime(processes, n, bt, wt);  
+    
+    //Function to find turn around time for all processes  
+    findTurnAroundTime(processes, n, bt, wt, tat);  
+    
+    //Display processes along with all details  
+    printf("Processes   Burst time   Waiting time   Turn around time\n");  
+    
+    // Calculate total waiting time and total turn   
+    // around time  
+    for (int  i=0; i<n; i++)  
+    {  
+        total_wt = total_wt + wt[i];  
+        total_tat = total_tat + tat[i];  
+        printf("   %d ",(i+1)); 
+        printf("       %d ", bt[i] ); 
+        printf("       %d",wt[i] ); 
+        printf("       %d\n",tat[i] );  
+    }  
+    int s=(float)total_wt / (float)n; 
+    int t=(float)total_tat / (float)n; 
+    printf("Average waiting time = %d",s); 
+    printf("\n"); 
+    printf("Average turn around time = %d ",t);  
+}  
+    
+// Driver code  
+int main()  
+{  
+    //process id's  
+    int processes[] = { 1, 2, 3};  
+    int n = sizeof processes / sizeof processes[0];  
+    
+    //Burst time of all processes  
+    int  burst_time[] = {10, 5, 8};  
+    
+    findavgTime(processes, n,  burst_time);  
+    return 0;  
+}
