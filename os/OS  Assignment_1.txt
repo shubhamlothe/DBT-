@@ -55,64 +55,121 @@ Assignmanet 1
 Q2
 A) Create three directory a b and c and create a.txt,b.txt and c.txt in each directory respectively and then copy c directory into the a.
 
-Ans: cp -r c a
+Ans:	root@DESKTOP-E3TUKR3:/mnt/d/os$ mkdir Assign1/a/file1
+ 	root@DESKTOP-E3TUKR3:/mnt/d/os$ mkdir Assign1/b/file2
+	root@DESKTOP-E3TUKR3:/mnt/d/os$ mkdir Assign1/c/file3
+	root@DESKTOP-E3TUKR3:/mnt/d/os/Assign1$ cp -r c a
 
 B)Move Directory b to c
 Ans: mv b c
 
 C)Create alias of ls -lh command to your name.
-Ans:  alias Rambo="ls -lh"
+Ans:  root@DESKTOP-E3TUKR3:/mnt/d/os/Assign1/a$ alias root="ls -lh"
 
 D) Change Directory name a to cdac.
-Ans:mv a cdac
+Ans:root@DESKTOP-E3TUKR3:/mnt/d/os/Assign1$ mv a cdac
 
 
 Q3. A) Create five files file1.txt , file2.txt ,file3.txt file4.txt and
     file5.txt with some text inside it. Search for 's' character
     inside all the files using grep command.
-Ans: grep 's\|' file3.txt
 
- Also Use cat to view all file content together.
-Ans: cat  {file1.txt,file2.txt,file3.txt,file4.txt,file5.txt}
-hello how are you
-im fine
-njoy
-life is great
-we live once...
+Ans: root@DESKTOP-E3TUKR3:/mnt/d/os/Assign1$ touch {file1.txt,file2.txt,file3.txt,file4.txt,file5.txt}
+	
+root@DESKTOP-E3TUKR3:/mnt/d/os/Assign1$ grep s *.txt
+file1.txt:shubham
+file3.txt:sun
+file4.txt:sunday
+file5.txt:shyam
+
+Also Use cat to view all file content together.
+root@DESKTOP-E3TUKR3:/mnt/d/os/Assign1$ cat file1.txt file2.txt file3.txt file4.txt file5.txt
+shubham
+shankar
+cdac
+sun
+mars
+sunday
+monday
+newzeland
+shyam
 
 B)Create file.txt using cat and edit that using nano editor
-Ans:cat > demo.txt
-    nano demo.txt
+Ans:	root@DESKTOP-E3TUKR3:/mnt/d/os/Assign1$ cat > file.txt
+	root@DESKTOP-E3TUKR3:/mnt/d/os/Assign1$ nano
+	root@DESKTOP-E3TUKR3:/mnt/d/os/Assign1$ cat file.txt
+	I love india
+	i am awesome
 
 C)Create 5 empty files using touch command
-touch {file1.txt,file2.txt,file3.txt,file4.txt,file5.txt}
+Ans: root@DESKTOP-E3TUKR3:/mnt/d/os/Assign1$ touch f1 f2 f3 f4 f5
 
 D)Remove previously created directory a , b and c.
-rm -rf a b c
+
+Ans : root@DESKTOP-E3TUKR3:/mnt/d/os/Assign1$ rm -rf a b c
 
 Q4. Create a file with some content using vi editor
-Ans vi demo
+Ans root@DESKTOP-E3TUKR3:/mnt/d/os/Assign1$ vi demo.txt
+    root@DESKTOP-E3TUKR3:/mnt/d/os/Assign1$ cat demo.txt
+	I am groot
+	awesome
 
 a) Display the file using cat command
-   Ans: cat demo
+   Ans: root@DESKTOP-E3TUKR3:/mnt/d/os/Assign1$ cat demo.txt
+	I am groot
+	awesome
+
 
 b) Display line numbers along with content
-Ans  cat -n demo
+
+Ans  root@DESKTOP-E3TUKR3:/mnt/d/os/Assign1$ cat -n file1.txt
+     1  shubham
+     2  shankar
+
 
 c) Display the file in reverse order using tac
-Ans:  tac demo
+Ans:  root@DESKTOP-E3TUKR3:/mnt/d/os/Assign1$ tac file1.txt
+	shubham
+	shankar
+
 
 d) Combine multiple files using cat command
-Ans: cat demo demo1
+Ans: root@DESKTOP-E3TUKR3:/mnt/d/os/Assign1$ cat file1.txt >> file2.txt
+     root@DESKTOP-E3TUKR3:/mnt/d/os/Assign1$ cat file2.txt
+	cdac
+	shubham
+	shankar
+
 
 Q5. Create Random some files and sub directories.
-Ans mkdir -p images/pictures 
+Ans root@DESKTOP-E3TUKR3:/mnt/d/os/Assign1$ mkdir -p test/demofile/orphan
     cat > demo.txt
     cat > demo2.txt
-) display files row wise, column wise, 1 per row
+ 
+a) display files row wise, column wise, 1 per row
+row wise 
+
+root@DESKTOP-E3TUKR3:/mnt/d/os/Assign1$ ls -1
+demo.txt
+f1
+f2
+f3
+f4
+f5
+file.txt
+file1.txt
+file2.txt
+file3.txt
+file4.txt
+file5.txt
+test
+
+root@DESKTOP-E3TUKR3:/mnt/d/os/Assign1$ ls | xargs -n 1
 
 b) sort the files in ascending, descending order
-Ans sort -n demo1.txt
+Ans root@DESKTOP-E3TUKR3:/mnt/d/os/Assign1$ ls -1 (acending)
+
+root@DESKTOP-E3TUKR3:/mnt/d/os/Assign1$ ls -1 -r (descending)
 
 _________________________________________________________________________________________________________
 Q1)
@@ -120,118 +177,168 @@ Q1)
 Create directory of your name and then create 4 files inside it named
 	a.txt, b.txt, c.txt and d.sh. And change the directory permission to
 	only user and also files permission to only user such that
-a)user can read and write the file a.txt and b.txt
 
-mkdir allsh
-cd allsh
-cat > a.txt
-cat > b.txt
-cat > c.txt
+
+
+root@DESKTOP-E3TUKR3:/mnt/d/os/Assign1mkdir root 
+
+root@DESKTOP-E3TUKR3:/mnt/d/os/Assign1/root$ touch a.txt b.txt c.txt d.sh
 
 a)user can read and write the file a.txt and b.txt
-chmod 060 a.txt b.txt
+  	 ~/root$ chmod u+rw a.txt
+	~/root$ ls -l
+	total 2
+	-rw------- 1 user user 0 Sep 13 07:52 a.txt
+
 
 b)user can write the file c.txt
-chmod 020 c.txt
+Ans  ~/root$ chmod 200 c.txt
+     --w------- 1 user user 0 Sep 13 07:52 c.txt
+
 
 Q2. Change the permission of the previous directory to executable only.
+Ans ~$ chmod 100 root
+    d--x------ 2 user user 6 Sep 13 07:52  priyanka
 
-Ans: priyanka@DESKTOP-E3TUKR3:/mnt/d/os$ chmod 010 a.txt
 
 Q3. Change the permission of the previous directory to read only.
- chmod a=r allsh
+Ans : ~$ chmod 444 abd
+	dr--r--r-- 2 user user 6 Sep 13 07:52  abd
 
 
-Q2. Change the permission of the previous directory to executable only.
+Q2). Change the permission of the previous directory to executable only.
 	Analyze the output.
- chmod 010 rambo
+
+ANs: 	~$ chmod 111 abd
+	~$ ls -l
+	 total 1
+	-rw-r--r-- 1 user user 0 Sep 13 07:51 'Welcome to CoCalc.term'
+	 d--x--x--x 2 user user 6 Sep 13 07:52 ab
 
 Q3) Change the permission of the previous directory to read only.
 	Analyze the output.
-chmod 040 rambo
--bash: cd: mahabharat: Permission denied
+	~$ chmod 444 cdac
+	~$ ls -l
+	total 2
+	-rw-r--r-- 1 user user 0 Sep 13 07:51 'Welcome to CoCalc.term'
+	 dr--r--r-- 2 user user 2 Sep 13 08:06  cdac
+
+ c)user can exectuable the file d.sh. Make
+	~/root$ chmod 100 d.sh
+	---x------ 1 user user 0 Sep 13 07:52 d.sh
 
 Q4. Use echo to list the all files of your home directory.
-ANs: echo *
-
-OS  Assignment_1.txt OS  Assignment_2.txt a.txt b.txt c.txt codes file1.txr file1.txt file2.txt ram allprograms
+ANs: root@DESKTOP-E3TUKR3:/home$ echo *
+     root
 
 Q5. Use echo to list the all files of /etc/ directory
+Ans : echo *
 
 Q6. Use echo to list the all files of /etc/ directory with extension name .conf
- echo *.conf
-demo.conf
+    root@DESKTOP-E3TUKR3:/etc$ echo *.conf
+    adduser.conf ca-certificates.conf debconf.conf deluser.conf e2scrub.conf fuse.conf gai.conf hdparm.conf host.conf kernel-img.conf ld.so.conf libaudit.conf logrotate.conf ltrace.conf mke2fs.conf multipath.conf nsswitch.conf overlayroot.conf overlayroot.local.conf pam.conf popularity-contest.conf resolv.conf rsyslog.conf sensors3.conf sos.conf sysctl.conf ucf.conf xattr.conf
+
 
 Q7. Use echo to append your name to a.txt
-echo a.txt > sunshine
+ans: root@DESKTOP-E3TUKR3:/mnt/d/os/Assign1/root$   echo "shubham" >> a.txt
 
-Note:Many operation might not work.Analyze them
+Note:Many operation might not work.Analyze them 
+
 1.Create Three level nested directory a,b and c
-mkdir -p a/b/c
+root@DESKTOP-E3TUKR3:/mnt/d/os/Assign1/new$ mkdir -p a/b/c
 
 a)Create at least one hidden file in each directory
-touch .hiddenfile.txt
+  touch .hiddenfile.txt
 
 b)Create at least one normal text file in each directory
-touch > a/file1.txt b/file2
+  root@DESKTOP-E3TUKR3:/mnt/d/os/Assign1/new$ touch a/b/.file1.txt a/b/c/.file3.txt
 
-c)Copy c into a
-ans :  cp -r c a
 
-d)Copy file inside a into b
-Ans:  cp -r a b
+
+c) Copy c into a
+ans : root@DESKTOP-E3TUKR3:/mnt/d/os/Assign1/new$ cp -r /mnt/d/os/Assign1/new/a/b/c a
+      root@DESKTOP-E3TUKR3:/mnt/d/os/Assign1/new/a$ ls
+      b  c
+
+
+d)Copy file inside a to b
+Ans:  root@DESKTOP-E3TUKR3:/mnt/d/os/Assign1$ cp -r /mnt/d/os/Assign1/new/a b
 
 2) Change the third level directory c permission to read only
-chmod 400 c
+Ans : ~$ chmod 400 a/b/c  
+	~/a/b$ ls -l
+	total 1
+	dr-------- 2 user user 2 Sep 13 08:49 c
 
 3) Try copying third level c directory to outside of a
-cp -r  c  /mnt/g/osassign
+root@DESKTOP-E3TUKR3:/mnt/d/os/Assign1$ cp -r /mnt/d/os/Assign1/new/a/b/c new
 
 4.Create the directory  “data“ inside b
- mkdir -p b/data
+root@DESKTOP-E3TUKR3:/mnt/d/os/a$ mkdir -p b/data
 
 5.Change the permission of b to read and write only
- chmod 600 file1.txt
+   ~$ chmod 600 a/b
+   total 1
+   drw------- 3 user user 3 Sep 13 08:49 b 
+
 
 6)Create directory “data2”  inside b
- mkdir -p b/data2
+root@DESKTOP-E3TUKR3:/mnt/d/os/a$ mkdir -p b/data2
 
-7.Create data.txt file inside b
- cat >  data.txt  b
+
+7. Create data.txt file inside b
+Ans: 
+  root@DESKTOP-E3TUKR3:/mnt/d/os/Assign1/new$ cat > data.txt b
+
 
 8.Rename the second level directory c to copied_dir
- mv c cpoied_dir
+Ans: root@DESKTOP-E3TUKR3:/mnt/d/os/a/b$ mv c cpoied_dir
 
 
 9.Change permission of copied_dir to only executable
- chmod 001 copied_dir
+	~/a/b$ chmod 100 copied_dir
+	~/a/b$ ls -l
+	total 1
+	d--x------ 2 user user 2 Sep 13 08:49 copied_dir
 
 
 10 Try ls on copied_dir
-ls
+root@DESKTOP-E3TUKR3:/mnt/d/os/a/b/cpoied_dir$ touch file1.txt file2.txt
 
 
 11.Try moving copied_dir to outside of a
- cp -r cpoied_dir  /mnt/g/osassign
+Ans:root@DESKTOP-E3TUKR3:/mnt/d/os/Assign1$   mv /mnt/d/os/Assign1/new/a/b/copied_dir new
+
 
 13.Now change the owner of the directory a to root
+    > groups username
+      chgrp webdev file.txt
+      ls -l file.txt
+
 
 14.Change permission of a to read write and executable to only user
- chmod 700 a
+   root@DESKTOP-E3TUKR3:/mnt/d/os/ chmod 700 a
+
 
 15.Try creating directory sample inside a
 mkdir -p a/sample
 
-16.Create directory x outside a
- mkdir -p a/x
 
-17.	Try moving x inside a
- mv x /mnt/g/osassign/a
+16.Create directory x outside a
+root@DESKTOP-E3TUKR3:/mnt/d/os/Assign1$ mkdir -p new/x
+
+
+
+17.Try moving x inside a
+root@DESKTOP-E3TUKR3:/mnt/d/os/Assign1/new$ mv /mnt/d/os/Assign1/new/x a
 
 18.Create directory movies
 mkdir movies
+
+
 19.Change group of movies to sudo
 sudo usermod -aG sudo newuser
+
 
 20.Change group of movies to avahi
 chgrp scifi myfile
