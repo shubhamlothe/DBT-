@@ -220,8 +220,60 @@ main()
 }
 
 
--------------------------------------------------------x-0-x------------------------------------------------------------------------------------------------------------------------		
+-------------------------------------------------------x-0-x------------------------------------------------------------------------------------------------------------------------
+Q2.
 
+#include<iostream>
+#include<unistd.h>
+#include<stdlib.h>
+#include<sched.h>
+
+using namespace std;
+
+int main()
+{
+        int a;
+        a=sched_getscheduler(getpid());
+        switch(a)
+        {
+                case SCHED_OTHER:cout<<"another scheduling poly"<<endl;
+                break;
+                case SCHED_RR:cout<<"round robin scheduler"<<endl;
+                break;
+                case SCHED_FIFO:cout<<"first in first out"<<endl;
+                break;
+
+        }
+return 0;
+}
+
+OUTPUT:
+another scheduling policy
+-------------------------------------------------------x-0-x---------------------------------------------------------------------------------------------
+Q3.
+
+#include<iostream>
+#include<unistd.h>
+#include<sched.h>
+using namespace std;
+int main()
+{
+        int a;
+        a=sched_setscheduler(getpid(),SCHED_FIFO,0);
+
+        if(a==0)
+        {
+                cout<<"priority set";
+        }
+        else
+        {
+                cout<<"priority not set";
+        }
+return 0;
+}
+OUTPUT:
+priority not set
+------------------------------------------------------x-0-x-----------------------------------------------------------------------------------------
 4.	Scheduling algorithm 
 	Write a program in C/CPP to take process name, its arrival time and execution/burst time as input. 
 	Use FCFS(non-preemptive) algorithm to calculate wait time of each process, average 
