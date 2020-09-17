@@ -1,0 +1,13 @@
+import java.util.*;
+public class Q4{
+public static void main(String a[]){
+System.out.println("enter value of a");
+Scanner sc = new Scanner(System.in);
+int r= sc.nextInt();
+
+double PI=3.14;
+int area = r*r*2*PI;
+int cir= 2*PI*r;
+System.out.println("area of circle"+c);
+System.out.println("area of circle"+c);
+}}
